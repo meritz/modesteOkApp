@@ -1,0 +1,7 @@
+{
+  "name": "AlloLivrezMoi365",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
