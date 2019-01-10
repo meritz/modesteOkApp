@@ -26,35 +26,35 @@
             <p>Staff: {{article.nom_livreur}}</p>
             <p>Tél: 90 22 90 22</p>
         </ion-text>
-            <ion-icon name="timer" slot="start"></ion-icon>
-            <p>{{selectedDate | date}}</p>
+            <!-- <ion-icon name="timer" slot="start"></ion-icon> -->
+            <p>date de livraison{{selectedDate | date}}</p>
       </ion-label>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      <ion-icon name="contact" slot="start"></ion-icon>
-      <ion-title>{{article.nom_client}}</ion-title>
-      <ion-icon name="call" slot="start"></ion-icon>
-      <ion-label>{{article.reference}}</ion-label>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>{{article.id_order}}</ion-label>
-      <ion-icon name="time" slot="start"></ion-icon>
-      <ion-label>{{article.date_add}}</ion-label>
+      <!-- <ion-icon name="contact" slot="start"></ion-icon> -->
+      <ion-label>nom clies  {{article.nom_client}}</ion-label>
+      <!-- <ion-icon name="call" slot="start"></ion-icon> -->
+      <ion-label>reference  {{article.reference}}</ion-label>
+      <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
+      <ion-label>id commande {{article.id_order}}</ion-label>
+      <!-- <ion-icon name="time" slot="start"></ion-icon> -->
+      <ion-label>date commande {{article.date_add}}</ion-label>
     </ion-label>
   </ion-item>
 
   <ion-item >
       <ion-label>
-        <ion-icon name="pizza" slot="start"></ion-icon>
-        <ion-label>{{article.payment}}</ion-label>
+        <!-- <ion-icon name="pizza" slot="start"></ion-icon> -->
+        <ion-label>payemment {{article.payment}}</ion-label>
       </ion-label>
   </ion-item>
 
   <ion-item>
       <ion-label>
-        <ion-icon name="card" slot="start"></ion-icon>
-        <ion-label>{{article.total_paye}}</ion-label>
+        <!-- <ion-icon name="card" slot="start"></ion-icon> -->
+        <ion-label>total {{article.total_paye}}</ion-label>
       </ion-label>
   </ion-item>
 

@@ -8,6 +8,7 @@ export const environment = {
   // apiKey: '0212/U9NC1NKUXPAX9CS1REGVFIXU2GJJVCLD',
   apiUrl: 'http://preprod.alloresto365.com/api',
   apiKey: 'token=hd8ignul9w8pzoatb78u',
+  orderKey: 'order=',
 };
 
 /*

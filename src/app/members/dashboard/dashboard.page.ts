@@ -1,5 +1,6 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { CommandeService } from '../../services/commande.service';
+import { DetailCommandeService } from '../../services/detail-commande.service';
 import { ModalPage } from '../modal/modal.page';
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
