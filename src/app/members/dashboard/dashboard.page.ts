@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPage implements OnInit {
 
-  data: any = [] ;
+  data: any;
 
 
 
@@ -29,7 +29,7 @@ export class DashboardPage implements OnInit {
     });
   }
 
-  async openModal(article) {
+  async openModal(article: string) {
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: {

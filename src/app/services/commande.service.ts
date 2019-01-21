@@ -18,4 +18,8 @@ export class CommandeService {
     return this.http.get(`${API_URL}/${url}?${API_KEY}`);
   }
 
+  getDataDetail(url, id) {
+    return this.http.get(`${API_URL}/${url}?${API_KEY}&order=${id}`);
+  }
+
 }

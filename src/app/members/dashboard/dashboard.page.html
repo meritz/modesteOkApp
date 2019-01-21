@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="undo"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Bienvenu Livreur</ion-title>
+    <ion-title>Livreur</ion-title>
   </ion-toolbar>
 </ion-header>
  
@@ -14,7 +14,7 @@
       <ion-item>
         <ion-icon name="contact" slot="start"></ion-icon>
         <ion-title>{{article.nom_client}}</ion-title>
-        <ion-button fill="outline" slot="end" (click)="openModal(article)"><ion-icon name="print"></ion-icon></ion-button>
+        <ion-button fill="outline" slot="end" (click)="openModal(article.id_order)"><ion-icon name="print"></ion-icon></ion-button>
       </ion-item>
     
       <ion-card-content>

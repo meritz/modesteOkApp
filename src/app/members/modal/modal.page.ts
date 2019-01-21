@@ -6,6 +6,7 @@ import { NotificationHelperService } from './../../services/notification-helper.
 import { DatePicker, DatePickerOptions } from '@ionic-native/date-picker/ngx';
 
 import { DetailCommandeService } from '../../services/detail-commande.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-modal',
@@ -18,7 +19,8 @@ export class ModalPage implements OnInit {
   pairedDevices: any;
   gettingDevices: Boolean;
   selectedDate: Date;
-  data: any = [] ;
+  data: any;
+
   // inputData: Date;
 
   constructor(private bluetoothSerial: BluetoothSerial,
@@ -33,15 +35,16 @@ export class ModalPage implements OnInit {
               }
 
   ngOnInit() {
-    // this.article = this.detailCommandeService.getDetailData(`get-details-commande`, 'article.id_order')
-    // .subscribe(data => {
-    //   console.log(data);
-    //   this.data = data;
-    // });
+   this.commandeService.getDataDetail(`get-details-commande`, this.article = this.commandeService.currentArticle)
+   .subscribe(data => {
+      console.log(data);
+      this.data = data;
+    });
     this.article = this.commandeService.currentArticle;
     console.log(this.commandeService.currentArticle);
     // this.article = this.detailCommandeService.currentArticle(`get-details-commande`, 'article.id_order');
   }
+
 
   closeModal() {
     this.modalController.dismiss();
