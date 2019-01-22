@@ -20,18 +20,18 @@
           </ion-label>
       </ion-item>
 
-      <!-- <ion-list *ngFor="let book of data?.data | keyvalue">
+      <ion-list *ngFor="let book of data?.data | keyvalue">
             {{book.key}}   {{book.value}}    
-      </ion-list> -->
+      </ion-list>
 
-      <div *ngFor="let book of data?.data | keyvalue"> 
+      <!-- <div *ngFor="let book of data?.data | keyvalue"> 
             {{"book[data].data.nom_client"}}
         </div>
         <ul>
           <li *ngFor="let user of data?.data | async as data; index as i">
             {%raw%}{{ user.nom_client }} ({{ i }} of {{ users.nom_client }}){%endraw%}
           </li>
-        </ul>
+        </ul> -->
              
 
       <!-- <ion-list *ngFor="let article of data">
