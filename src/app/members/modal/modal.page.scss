@@ -1,12 +1,19 @@
 ion-content, ion-list{
     background-color: #f5ebeb;
+    font-family: fantasy;
 }
 
 ion-item {
+    
     border-bottom: 1px solid grey !important;
 }
 
-// ion-img {
-//     margin-top: -42px;
-//     margin-bottom: -40px;
-// }
+ion-label {
+    font-family: monospace;
+}
+
+ion-text{
+    font-family: fantasy;
+    font-style: italic;
+    font-size: small;
+}

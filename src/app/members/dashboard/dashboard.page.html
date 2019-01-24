@@ -32,8 +32,8 @@
       </ion-item>
         <ion-item class="activated">
           <ion-icon name="pricetag" slot="start"></ion-icon>
-          <ion-label>Livraison en Cours</ion-label>
-          <ion-toggle checked="false"></ion-toggle>
+          <ion-label>Etat de Livraison: {{article.livreur}}</ion-label>
+          <ion-toggle  [(ngModel)]="toggleStatus" pulsado checked="false" (ionChange)="Change_Toggle();" ></ion-toggle>
         </ion-item>
       </ion-card-content>
     </ion-card>

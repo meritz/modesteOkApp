@@ -19,6 +19,7 @@ export class ModalPage implements OnInit {
   pairedDevices: any;
   gettingDevices: Boolean;
   selectedDate: Date;
+  // data ;
   data: any;
 
   // inputData: Date;
@@ -32,16 +33,17 @@ export class ModalPage implements OnInit {
               private navParams: NavParams,
               private datePicker: DatePicker, ) {
                 bluetoothSerial.enable();
+
               }
 
   ngOnInit() {
-   this.commandeService.getDataDetail(`get-details-commande`, this.article = this.commandeService.currentArticle)
+    this.data = this.commandeService.getDataDetail(`get-details-commande`, this.article = this.commandeService.currentArticle)
    .subscribe(data => {
       console.log(data);
       this.data = data;
     });
-    this.article = this.commandeService.currentArticle;
-    console.log(this.commandeService.currentArticle);
+    // this.data = this.commandeService.currentDetailArticle;
+    // console.log(this.commandeService.currentDetailArticle);
     // this.article = this.detailCommandeService.currentArticle(`get-details-commande`, 'article.id_order');
   }
 
@@ -137,11 +139,21 @@ export class ModalPage implements OnInit {
     this.bluetoothSerial.write(
       this.write()
     ).then((success) => {
-
+      alert(success);
     }, (failure) => {
 
     });
   }
+
+  // sendDataToSerial() {
+  //   this.bluetoothSerial.write(
+  //     'modeste'
+  //   ).then((success) => {
+  //     alert(success);
+  //   }, (failure) => {
+
+  //   });
+  // }
 
   declareLabelSize(pitchLengthOfLabel, effectivePrintWidth, effectivePrintLength): string {
     // return '{D' + pitchLengthOfLabel + ',' + effectivePrintWidth + ',' + effectivePrintLength + '|}';
@@ -214,7 +226,8 @@ export class ModalPage implements OnInit {
   }
 
   write(): string {
-    const toshibaPrintScript: string =
+    // tslint:disable-next-line:prefer-const
+    let toshibaPrintScript: string =
       this.cleanBuffer() +
       this.cleanBuffer() +
       this.TXT_4SQUARE('formaAlloresto') +
@@ -235,12 +248,12 @@ export class ModalPage implements OnInit {
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('NOM:      ') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.nom_client +
+      this.article +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('REFERENCE:') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.reference +
+      this.data[0].nom_client +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('PRIX:     ') +
