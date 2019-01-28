@@ -20,7 +20,6 @@ export class ModalPage implements OnInit {
   gettingDevices: Boolean;
   selectedDate: Date;
   // data ;
-  data: any;
 
   // inputData: Date;
 
@@ -37,14 +36,9 @@ export class ModalPage implements OnInit {
               }
 
   ngOnInit() {
-    this.data = this.commandeService.getDataDetail(`get-details-commande`, this.article = this.commandeService.currentArticle)
-   .subscribe(data => {
-      console.log(data);
-      this.data = data;
-    });
-    // this.data = this.commandeService.currentDetailArticle;
-    // console.log(this.commandeService.currentDetailArticle);
-    // this.article = this.detailCommandeService.currentArticle(`get-details-commande`, 'article.id_order');
+    this.article = this.detailCommandeService.currentDetailArticle;
+    console.log(this.detailCommandeService.currentDetailArticle);
+
   }
 
 
@@ -135,12 +129,12 @@ export class ModalPage implements OnInit {
     }
   }
 
-  sendDataToSerial(articles) {
+  sendDataToSerial() {
     this.bluetoothSerial.write(
       this.write()
     ).then((success) => {
       alert(success);
-      this.data = articles;
+
     }, (failure) => {
 
     });
@@ -249,17 +243,17 @@ export class ModalPage implements OnInit {
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('NOM:      ') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.data[0] +
+      this.article.nom_client +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('REFERENCE:') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.data.nom_client +
+      this.article.adresse_livraison.adresse_1 +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('PRIX:     ') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.id_order +
+      this.article.adresse_livraison.autre +
       this.text('  Fr CFA') +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +

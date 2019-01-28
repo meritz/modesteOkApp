@@ -11,15 +11,15 @@ const API_KEY = environment.apiKey;
 })
 export class CommandeService {
   currentArticle: any;
-  currentDetailArticle: any;
+  // currentDetailArticle: any;
   constructor(private http: HttpClient) { }
 
   getData(url) {
     return this.http.get(`${API_URL}/${url}?${API_KEY}`);
   }
 
-  getDataDetail(url, id) {
-    return this.http.get(`${API_URL}/${url}?${API_KEY}&order=${id}`);
-  }
+  // getDataDetail(url, id) {
+  //   return this.http.get(`${API_URL}/${url}?${API_KEY}&order=${id}`);
+  // }
 
 }

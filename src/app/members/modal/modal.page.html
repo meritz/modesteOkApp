@@ -6,7 +6,6 @@
           </ion-button>
       </ion-buttons>
     <ion-title>Imprimer</ion-title>
-    <p>{{article.nom_client}}</p>
   </ion-toolbar>
 </ion-header>
 
@@ -20,12 +19,12 @@
           </ion-label>
       </ion-item>
             
-      <ion-list *ngFor="let articles of data?.data">
+      <ion-list>
       <ion-item>
           <ion-label>
             <ion-text>
-              <h3>Id cart:{{articles.id_cart}} </h3>
-                <p>STAFF: {{articles.nom_livreur}}</p>
+              <h3>Id cart:{{article.id_cart}} </h3>
+                <p>STAFF: {{article.nom_livreur}}</p>
                 <p>TEL: 90 22 90 22</p>
             </ion-text>
                 <p>date de livraison:   {{selectedDate | date}}</p>
@@ -34,27 +33,27 @@
     
       <ion-item>
         <ion-label>
-          <ion-label><ion-text>NOM CLIENT:  </ion-text>{{articles.nom_client}}</ion-label>
-          <ion-label><ion-text>ADRESSE:</ion-text>  {{articles.adresse_livraison.adresse_1}}</ion-label>
-          <ion-label><ion-text>ADRESSE 2:</ion-text> {{articles.adresse_livraison.autre}}</ion-label>
-          <ion-label><ion-text>MOBILE:</ion-text> {{articles.adresse_livraison.mobile}}</ion-label>
-          <ion-label><ion-text>TEL:</ion-text> {{articles.adresse_livraison.telephone}}</ion-label>
-          <ion-label><ion-text>VILE:</ion-text> {{articles.adresse_livraison.ville}}</ion-label>
+          <ion-label><ion-text>NOM CLIENT:  </ion-text>{{article.nom_client}}</ion-label>
+          <ion-label><ion-text>ADRESSE:</ion-text>  {{article.adresse_livraison.adresse_1}}</ion-label>
+          <ion-label><ion-text>ADRESSE 2:</ion-text> {{article.adresse_livraison.autre}}</ion-label>
+          <ion-label><ion-text>MOBILE:</ion-text> {{article.adresse_livraison.mobile}}</ion-label>
+          <ion-label><ion-text>TEL:</ion-text> {{article.adresse_livraison.telephone}}</ion-label>
+          <ion-label><ion-text>VILE:</ion-text> {{article.adresse_livraison.ville}}</ion-label>
         </ion-label>
       </ion-item>
 
 
       <h4>INFORMATIONS DES PLATS</h4>
-      <ion-label><ion-text>REFERENCE:</ion-text>  {{articles.reference}}</ion-label>
-      <ion-label><ion-text>DATA:</ion-text> {{articles.date_add}}</ion-label>
+      <ion-label><ion-text>REFERENCE:</ion-text>  {{article.reference}}</ion-label>
+      <ion-label><ion-text>DATA:</ion-text> {{article.date_add}}</ion-label>
       <p>
         <ion-list >
-          <p *ngFor="let produit of articles.produits" >
-              <ion-label><ion-text>NOM PRODUIT:</ion-text>  {{produit.nom_produit}} </ion-label>
-              <ion-label><ion-text>PRIX PRODUIT:</ion-text>  {{produit.prix_produit}} </ion-label>
-              <ion-label><ion-text>QTE PRODUIT:</ion-text> {{produit.qte_produit}}</ion-label>
-              <ion-label><ion-text>RESTAURANT:</ion-text> {{produit.restaurant}}</ion-label>
-              <ion-label><ion-text>TOTAL PRODUIT:</ion-text> {{produit.total_produit}}</ion-label>
+          <p >
+              <ion-label><ion-text>NOM PRODUIT:</ion-text>  {{article.produits[prix_produit]}} </ion-label>
+              <ion-label><ion-text>PRIX PRODUIT:</ion-text>  {{article.prix_produit}} </ion-label>
+              <ion-label><ion-text>QTE PRODUIT:</ion-text> {{article.qte_produit}}</ion-label>
+              <ion-label><ion-text>RESTAURANT:</ion-text> {{article.restaurant}}</ion-label>
+              <ion-label><ion-text>TOTAL PRODUIT:</ion-text> {{article.total_produit}}</ion-label>
           </p>
         </ion-list>
       </p>
@@ -63,26 +62,26 @@
     
       <ion-item>
           <ion-label>
-            <ion-label><ion-text>TOTAL:</ion-text> {{articles.total_paye}}</ion-label>
+            <ion-label><ion-text>TOTAL:</ion-text> {{article.total_paye}}</ion-label>
           </ion-label>
       </ion-item>
 
       <ion-item >
           <ion-label>
-            <ion-label><ion-text>MESSAGE:</ion-text> {{articles.message_com}}</ion-label>
+            <ion-label><ion-text>MESSAGE:</ion-text> {{article.message_com}}</ion-label>
           </ion-label>
       </ion-item>
 
       <ion-item >
         <ion-label>
-          <ion-label><ion-text>MOYEN:</ion-text> {{articles.payment}}</ion-label>
+          <ion-label><ion-text>MOYEN:</ion-text> {{article.payment}}</ion-label>
         </ion-label>
     </ion-item>
 
     <ion-item >
       <ion-label>
-        <ion-label><ion-text>date livraison prevue:</ion-text> {{articles.date_livraison_prevue}}</ion-label>
-        <ion-label><ion-text>heure livraison prevue:</ion-text> {{articles.heure_livraison_prevue}}</ion-label>
+        <ion-label><ion-text>date livraison prevue:</ion-text> {{article.date_livraison_prevue}}</ion-label>
+        <ion-label><ion-text>heure livraison prevue:</ion-text> {{article.heure_livraison_prevue}}</ion-label>
       </ion-label>
   </ion-item>
 

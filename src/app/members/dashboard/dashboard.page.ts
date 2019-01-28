@@ -2,8 +2,10 @@ import { AuthenticationService } from './../../services/authentication.service';
 import { CommandeService } from '../../services/commande.service';
 import { DetailCommandeService } from '../../services/detail-commande.service';
 import { ModalPage } from '../modal/modal.page';
-import { ModalController } from '@ionic/angular';
+import { DetailPage } from '../detail/detail.page';
+import { ModalController, NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +21,8 @@ export class DashboardPage implements OnInit {
 
   constructor(private authService: AuthenticationService,
               private commandeService: CommandeService,
-              private modalController: ModalController) { }
+              private modalController: ModalController,
+              private nav: NavController, private router: Router) { }
 
   ngOnInit() {
     this.commandeService.getData(`get-liste-commande`)
@@ -27,16 +30,22 @@ export class DashboardPage implements OnInit {
       console.log(data);
       this.data = data;
     });
+    console.log(this.commandeService.currentArticle);
   }
 
-  async openModal(article: string) {
-    const modal = await this.modalController.create({
-      component: ModalPage,
-      componentProps: {
-        custom_id: this.commandeService.currentArticle = article,
-      }
-    });
-    await modal.present();
+  // async openModal(article: string) {
+  //   const modal = await this.modalController.create({
+  //     component: ModalPage,
+  //     componentProps: {
+  //       custom_id: this.commandeService.currentArticle = article,
+  //     }
+  //   });
+  //   await modal.present();
+  // }
+
+  opendetail(plats) {
+    this.commandeService.currentArticle = plats;
+    this.nav.navigateForward(['/members/detail']);
   }
 
   logout() {

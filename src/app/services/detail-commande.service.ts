@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 
 const API_URL = environment.apiUrl;
 const API_KEY = environment.apiKey;
-const ODE_KEY = environment.orderKey;
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class DetailCommandeService {
 
   constructor(private http: HttpClient) { }
 
-  getDetailData(url, order) {
-    return this.http.get(`${API_URL}/${url}?${API_KEY}&${ODE_KEY}${order}`);
+  getDetailData(url, id) {
+    return this.http.get(`${API_URL}/${url}?${API_KEY}&order=${id}`);
   }
 }

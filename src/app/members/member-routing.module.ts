@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },  { path: 'modal', loadChildren: './modal/modal.module#ModalPageModule' }
+  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },  { path: 'modal', loadChildren: './modal/modal.module#ModalPageModule' },
+  { path: 'detail', loadChildren: './detail/detail.module#DetailPageModule' }
 
 ];
 
