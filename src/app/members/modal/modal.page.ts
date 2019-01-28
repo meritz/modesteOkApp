@@ -135,11 +135,12 @@ export class ModalPage implements OnInit {
     }
   }
 
-  sendDataToSerial() {
+  sendDataToSerial(articles) {
     this.bluetoothSerial.write(
       this.write()
     ).then((success) => {
       alert(success);
+      this.data = articles;
     }, (failure) => {
 
     });
@@ -227,7 +228,7 @@ export class ModalPage implements OnInit {
 
   write(): string {
     // tslint:disable-next-line:prefer-const
-    let toshibaPrintScript: string =
+    const toshibaPrintScript: string =
       this.cleanBuffer() +
       this.cleanBuffer() +
       this.TXT_4SQUARE('formaAlloresto') +
@@ -248,12 +249,12 @@ export class ModalPage implements OnInit {
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('NOM:      ') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article +
+      this.data[0] +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('REFERENCE:') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.data[0].nom_client +
+      this.data.nom_client +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('PRIX:     ') +
