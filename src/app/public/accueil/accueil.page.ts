@@ -14,6 +14,10 @@ export class AccueilPage implements OnInit {
   params: Object;
   pushPage: any;
 
+  slideOpts = {
+    effect: 'flip'
+  };
+
   constructor() {
 
   }

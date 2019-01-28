@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title>detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>DETEIL</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -42,13 +46,13 @@
   <ion-label><ion-text>REFERENCE:</ion-text>  {{article.reference}}</ion-label>
   <ion-label><ion-text>DATA:</ion-text> {{article.date_add}}</ion-label>
   <p>
-    <ion-list >
+    <ion-list class="modeste" >
       <p *ngFor="let produit of article.produits" >
-          <ion-label><ion-text>NOM PRODUIT:</ion-text>  {{produit.nom_produit}} </ion-label>
-          <ion-label><ion-text>PRIX PRODUIT:</ion-text>  {{produit.prix_produit}} </ion-label>
-          <ion-label><ion-text>QTE PRODUIT:</ion-text> {{produit.qte_produit}}</ion-label>
+          <ion-label><ion-text>NOM:</ion-text> {{produit.nom_produit}} </ion-label>
+          <ion-label><ion-text>PRIX:</ion-text>  {{produit.prix_produit}} </ion-label>
+          <ion-label><ion-text>QANTITER:</ion-text> {{produit.qte_produit}}</ion-label>
           <ion-label><ion-text>RESTAURANT:</ion-text> {{produit.restaurant}}</ion-label>
-          <ion-label><ion-text>TOTAL PRODUIT:</ion-text> {{produit.total_produit}}</ion-label>
+          <ion-label><ion-text>TOTAL:</ion-text> {{produit.total_produit}}</ion-label>
       </p>
     </ion-list>
   </p>
@@ -84,33 +88,8 @@
 
   </ion-list>
 
-<!--  -->
-<ion-list padding>
-<!-- <ion-button color="danger" expand="block" (click)="startScanning(); setDate(articles)">Connecter à l'imrimantep</ion-button> -->
-<!-- <ion-list-header>
-  LISTE DES APPARIELS CONNECTER
-</ion-list-header> -->
-<!-- <ion-item *ngFor="let device of pairedDevices">
-  {{device.name}}
-</ion-item>
-<ion-button block (click)="disconnect()">DECONNECTER</ion-button> -->
-<!-- <ion-list-header>
-Selectionner imprimante
-</ion-list-header>
-<ion-item *ngFor='let device of unpairedDevices'>
-  <span (click)="selectDevice(device.address)">
-    {{device.name}}
-  </span>
-</ion-item>
-<ion-spinner name="crescent" *ngIf="gettingDevices"></ion-spinner> -->
-
-  
-</ion-list>
 </ion-content>
 <ion-footer>
 <ion-toolbar color="danger">
-<!-- <ion-button expand="full" fill="clear" color="light" (click)="closeModal()">
-  Close
-</ion-button> -->
 </ion-toolbar>
 </ion-footer>
