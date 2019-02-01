@@ -33,15 +33,6 @@ export class DashboardPage implements OnInit {
     console.log(this.commandeService.currentArticle);
   }
 
-  // async openModal(article: string) {
-  //   const modal = await this.modalController.create({
-  //     component: ModalPage,
-  //     componentProps: {
-  //       custom_id: this.commandeService.currentArticle = article,
-  //     }
-  //   });
-  //   await modal.present();
-  // }
 
   opendetail(plats) {
     this.commandeService.currentArticle = plats;

@@ -34,17 +34,32 @@
     </ion-row>
       
   <!--  -->
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating" >Email</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ion-item >
-      <ion-label position="floating">Mot de passe</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="login()" expand="block" color="danger">S'identifier</ion-button>
+  <form [formGroup]="login_form">
+    
+      <ion-item>
+          <ion-col size="2">
+              <ion-icon name="phone-portrait" style="color: #CC0033"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <input type="text" formControlName="user_name" placeholder="Enter the Username">
+            </ion-col>
+      </ion-item>
+
+      <ion-item>
+          <ion-col size="2">
+              <ion-icon name="key" style="color: #CC0033"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <input type="password" formControlName="password" placeholder="Password">
+            </ion-col>
+      </ion-item>
+       
+      
+   <div [ngClass]="login_form.valid? 'custom-button': 'custom-invalid-button'">
+     <ion-button (click)="onLoginClicled()"></ion-button>
+   </div>
+    
+  </form>
   <!--  -->
   <ion-grid>
       <ion-row>

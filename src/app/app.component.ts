@@ -11,6 +11,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  swipeOption: boolean;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -21,6 +23,11 @@ export class AppComponent {
     this.initializeApp();
   }
 
+  logout() {
+    this.swipeOption = true;
+    this.authenticationService.logout();
+  }
+
   initializeApp() {
       this.platform.ready().then(() => {
       this.statusBar.styleBlackTranslucent();
@@ -29,8 +36,10 @@ export class AppComponent {
 
       this.authenticationService.authenticationState.subscribe(state => {
         if (state) {
+          this.swipeOption = false;
           this.router.navigate(['members', 'dashboard']);
         } else {
+          this.swipeOption = true;
           this.router.navigate(['accueil']);
         }
       });

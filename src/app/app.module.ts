@@ -6,6 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ModalPageModule } from './members/modal/modal.module';
+// import { LoginPageModule } from './public/login/login.module';
+import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -24,6 +26,9 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
      IonicStorageModule.forRoot(),
      HttpClientModule,
      ModalPageModule,
+    //  LoginPageModule,
+     FormsModule,
+     ReactiveFormsModule,
     ],
   providers: [
     StatusBar,
