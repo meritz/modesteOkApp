@@ -26,20 +26,33 @@
             <p>STAFF: {{article.nom_livreur}}</p>
             <p>TEL: 90 22 90 22</p>
         </ion-text>
-            <p>date de livraison:   {{selectedDate | date}}</p>
       </ion-label>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      <ion-label><ion-text>NOM CLIENT:  </ion-text>{{article.nom_client}}</ion-label>
-      <ion-label><ion-text>ADRESSE:</ion-text>  {{article.adresse_livraison.adresse_1}}</ion-label>
-      <ion-label><ion-text>ADRESSE 2:</ion-text> {{article.adresse_livraison.autre}}</ion-label>
-      <ion-label><ion-text>MOBILE:</ion-text> {{article.adresse_livraison.mobile}}</ion-label>
-      <ion-label><ion-text>TEL:</ion-text> {{article.adresse_livraison.telephone}}</ion-label>
-      <ion-label><ion-text>VILE:</ion-text> {{article.adresse_livraison.ville}}</ion-label>
+      <h4>INFORMATIONS Clients a facture</h4>
+      <ion-label><ion-text>NOM CLIENT:  </ion-text>{{article.adresse_facturation.nom}}</ion-label>
+      <ion-label><ion-text>NOM CLIENT:  </ion-text>{{article.adresse_facturation.prenom}}</ion-label>
+      <ion-label><ion-text>ADRESSE:</ion-text>  {{article.adresse_facturation.adresse_1}}</ion-label>
+      <ion-label><ion-text>ADRESSE 2:</ion-text> {{article.adresse_facturation.autre}}</ion-label>
+      <ion-label><ion-text>MOBILE:</ion-text> {{article.adresse_facturation.mobile}}</ion-label>
+      <ion-label><ion-text>TEL:</ion-text> {{article.adresse_facturation.telephone}}</ion-label>
+      <ion-label><ion-text>VILE:</ion-text> {{article.adresse_facturation.ville}}</ion-label>
     </ion-label>
   </ion-item>
+  <ion-item>
+      <ion-label>
+        <h4>INFORMATIONS Adress de livraison</h4>
+        <ion-label><ion-text>NOM CLIENT:  </ion-text>{{article.adresse_livraison.nom}}</ion-label>
+        <ion-label><ion-text>NOM CLIENT:  </ion-text>{{article.adresse_livraison.prenom}}</ion-label>
+        <ion-label><ion-text>ADRESSE:</ion-text>  {{article.adresse_livraison.adresse_1}}</ion-label>
+        <ion-label><ion-text>ADRESSE 2:</ion-text> {{article.adresse_livraison.autre}}</ion-label>
+        <ion-label><ion-text>MOBILE:</ion-text> {{article.adresse_livraison.mobile}}</ion-label>
+        <ion-label><ion-text>TEL:</ion-text> {{article.adresse_livraison.telephone}}</ion-label>
+        <ion-label><ion-text>VILE:</ion-text> {{article.adresse_livraison.ville}}</ion-label>
+      </ion-label>
+    </ion-item>
 
 
   <h4>INFORMATIONS DES PLATS</h4>

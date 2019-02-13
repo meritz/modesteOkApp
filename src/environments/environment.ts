@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   // apiUrl: 'http://dev.allorestomaison.com/mobapi/index.php/api',
   // apiKey: '0212/U9NC1NKUXPAX9CS1REGVFIXU2GJJVCLD',
-  apiUrl: 'http://preprod.alloresto365.com/api',
-  apiKey: 'token=s7k8o19a9bz0qb4lh423',
+  apiUrl: 'http://alloresto365.com/api',
+  apiKey: 'token=hu2mrb4g5cw4vibki8ja',
   orderKey: 'order=',
 };
 

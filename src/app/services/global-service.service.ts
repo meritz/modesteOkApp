@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalServiceService {
-  server_url: string = 'http://preprod.alloresto365.com/api/';
+  server_url: 'http://preprod.alloresto365.com/api/';
 
   constructor() { }
 

@@ -54,10 +54,7 @@
             </ion-col>
       </ion-item>
        
-      
-   <div [ngClass]="login_form.valid? 'custom-button': 'custom-invalid-button'">
-     <ion-button (click)="onLoginClicled()"></ion-button>
-   </div>
+     <ion-button expand="block" (click)="onLoginClicled()" [ngClass]="login_form.valid? 'custom-button': 'custom-invalid-button'" >login</ion-button>
     
   </form>
   <!--  -->

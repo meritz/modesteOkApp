@@ -11,7 +11,7 @@ import { ModalController, NavController, ToastController, AlertController } from
 export class LoginPage implements OnInit {
 
   public login_form: FormGroup;
-  swipeOption: boolean = true;
+
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthenticationService) {

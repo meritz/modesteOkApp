@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
-  // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'accueil', loadChildren: './public/accueil/accueil.module#AccueilPageModule' },
   { path: 'login', loadChildren: './public/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './public/register/register.module#RegisterPageModule' },

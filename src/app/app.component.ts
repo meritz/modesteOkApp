@@ -36,10 +36,8 @@ export class AppComponent {
 
       this.authenticationService.authenticationState.subscribe(state => {
         if (state) {
-          this.swipeOption = false;
           this.router.navigate(['members', 'dashboard']);
         } else {
-          this.swipeOption = true;
           this.router.navigate(['accueil']);
         }
       });

@@ -4,7 +4,7 @@ import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../../src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { GlobalServiceService } from '../services/global-service.service';
+
 
 
 const TOKEN_KEY = 'auth-token';
@@ -18,7 +18,10 @@ export class AuthenticationService {
   variablee: any;
   authenticationState = new BehaviorSubject(false);
 
-  constructor(private storage: Storage, private plt: Platform, private http: HttpClient, private global: GlobalServiceService, private events: Events) {
+  constructor(private storage: Storage,
+     private plt: Platform,
+      private http: HttpClient,
+       private events: Events) {
     this.plt.ready().then(() => {
       this.checkToken();
     });
@@ -32,31 +35,18 @@ export class AuthenticationService {
     });
   }
 
-  
 
-  login(data) {
-    this.http.post(this.global.server_url + 'user-authentication', data).subscribe((res_data) => {
-			console.log(res_data);
-			console.log("login inside");
-			this.authenticationState.next(true);
-			this.events.publish('login_event', res_data['token']);
-			this.storage.set('user_profile', res_data['user_profile']);
-			console.log(this.storage);
-			this.storage.set(TOKEN_KEY, res_data['Token']);
-			return this.storage.set(TOKEN_KEY, res_data['token']);
-		}, (error) => {
-			console.error(error);
-			let detail_error = error.error['message'];
-			alert(detail_error);
-		});
+
+  login(user) {
+    return this.storage.set(TOKEN_KEY, user).then(() => {
+      this.authenticationState.next(true);
+    });
   }
 
   logout() {
-    return this.storage.clear().then((data) => {
-			console.log(data);
-			console.log("logged out");
-			this.authenticationState.next(false);
-		});
+    return this.storage.remove(TOKEN_KEY).then(() => {
+      this.authenticationState.next(false);
+    });
   }
 
   isAuthenticated() {

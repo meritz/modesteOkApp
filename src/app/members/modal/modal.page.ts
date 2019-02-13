@@ -19,6 +19,7 @@ export class ModalPage implements OnInit {
   pairedDevices: any;
   gettingDevices: Boolean;
   selectedDate: Date;
+  produits: 'article.produits';
   // data ;
 
   // inputData: Date;
@@ -220,9 +221,9 @@ export class ModalPage implements OnInit {
     return '';
   }
 
-  write(): string {
+  write(): any {
     // tslint:disable-next-line:prefer-const
-    const toshibaPrintScript: string =
+    const toshibaPrintScript: any =
       this.cleanBuffer() +
       this.cleanBuffer() +
       this.TXT_4SQUARE('formaAlloresto') +
@@ -246,35 +247,42 @@ export class ModalPage implements OnInit {
       this.article.nom_client +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
-      this.text('REFERENCE:') +
+      this.text('NUMERO:   ') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.adresse_livraison.adresse_1 +
-      this.cleanBuffer() +
-      this.TXT_ALIGN_LT('aligLeftlAlloresto') +
-      this.text('PRIX:     ') +
-      this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.adresse_livraison.autre +
-      this.text('  Fr CFA') +
-      this.cleanBuffer() +
-      this.TXT_ALIGN_LT('aligLeftlAlloresto') +
-      this.text('NUMERO:') +
-      this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.date_add +
+      this.article.adresse_livraison.mobile +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('ADRESSE: ') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.Client_adress +
+      this.article.adresse_livraison.adresse_1 + ' ' +
+      this.article.adresse_livraison.autre +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('DATE/HEURE:') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.article.date_ajout +
+      this.article.date_add +
+      this.cleanBuffer() +
+      this.text('================================') +
+      this.cleanBuffer() +
+      this.TXT_ALIGN_LT('aligLeftlAlloresto') +
+      this.text('REFERENCE:  ') +
+      this.TXT_ALIGN_RT('aligRightAlloresto') +
+      this.article.reference +
+      this.cleanBuffer() +
+      this.TXT_ALIGN_LT('aligLeftlAlloresto') +
+      this.text('PRIX:     ') +
+      this.TXT_ALIGN_RT('aligRightAlloresto') +
+      this.article.total_paye +
+      this.text('  Fr CFA') +
+      this.cleanBuffer() +
+      this.text('================================') +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('LIVRAISON:') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
       this.selectedDate +
+      this.cleanBuffer() +
+      this.text('******************************') +
       this.cleanBuffer() +
       this.text('================================') +
       this.cleanBuffer() +

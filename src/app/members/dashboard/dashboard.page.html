@@ -27,13 +27,17 @@
             <ion-label>{{plats.date_add}}</ion-label>
         </ion-item>
         <ion-item>
+            <ion-icon name="bicycle" slot="start"></ion-icon>
+            <ion-label>{{plats.date_livraison_prevue}} -- {{plats.heure_livraison_prevue}}</ion-label>
+        </ion-item>
+        <ion-item>
           <ion-icon name="cart" slot="start"></ion-icon>
           <ion-label>{{plats.state_name}}</ion-label>
       </ion-item>
         <ion-item class="activated">
           <ion-icon name="pricetag" slot="start"></ion-icon>
           <ion-label>Etat de Livraison: {{plats.livreur}}</ion-label>
-          <ion-toggle  [(ngModel)]="toggleStatus" pulsado checked="false" (ionChange)="Change_Toggle();" ></ion-toggle>
+          <ion-toggle checked="false" ></ion-toggle>
         </ion-item>
       </ion-card-content>
     </ion-card>

@@ -47,13 +47,14 @@
       <ion-label><ion-text>REFERENCE:</ion-text>  {{article.reference}}</ion-label>
       <ion-label><ion-text>DATA:</ion-text> {{article.date_add}}</ion-label>
       <p>
-        <ion-list >
+        <ion-list *ngFor="let produit of article.produits" >
           <p >
-              <ion-label><ion-text>NOM PRODUIT:</ion-text>  {{produits.prix_produit}} </ion-label>
-              <ion-label><ion-text>PRIX PRODUIT:</ion-text>  {{article.prix_produit}} </ion-label>
-              <ion-label><ion-text>QTE PRODUIT:</ion-text> {{article.qte_produit}}</ion-label>
-              <ion-label><ion-text>RESTAURANT:</ion-text> {{article.restaurant}}</ion-label>
-              <ion-label><ion-text>TOTAL PRODUIT:</ion-text> {{article.total_produit}}</ion-label>
+              <ion-label><ion-text>NOM:</ion-text> {{produit.nom_produit}} </ion-label>
+              <ion-label><ion-text>PRIX:</ion-text>  {{produit.prix_produit}} </ion-label>
+              <ion-label><ion-text>QANTITER:</ion-text> {{produit.qte_produit}}</ion-label>
+              <ion-label><ion-text>RESTAURANT:</ion-text> {{produit.restaurant}}</ion-label>
+              <ion-label><ion-text>TOTAL:</ion-text> {{produit.total_produit}}</ion-label>
+              <!-- <ion-label> {{produit.nom_produit}} </ion-label> -->
           </p>
         </ion-list>
       </p>
@@ -89,7 +90,7 @@
 
   <!--  -->
   <ion-list padding>
-    <ion-button color="danger" expand="block" (click)="startScanning(); setDate(articles)">Connecter à l'imrimantep</ion-button>
+    <ion-button color="danger" expand="block" (click)="startScanning(); setDate(article)">Connecter à l'imrimantep</ion-button>
     <!-- <ion-list-header>
       LISTE DES APPARIELS CONNECTER
     </ion-list-header> -->

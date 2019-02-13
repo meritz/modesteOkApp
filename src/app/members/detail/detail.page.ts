@@ -30,7 +30,7 @@ export class DetailPage implements OnInit {
   }
 
 
-  async opendetail(article: string) {
+  async opendetail(article: any) {
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: {
