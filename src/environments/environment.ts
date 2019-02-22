@@ -1,3 +1,4 @@
+
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
@@ -7,8 +8,8 @@ export const environment = {
   // apiUrl: 'http://dev.allorestomaison.com/mobapi/index.php/api',
   // apiKey: '0212/U9NC1NKUXPAX9CS1REGVFIXU2GJJVCLD',
   apiUrl: 'http://alloresto365.com/api',
-  apiKey: 'token=hu2mrb4g5cw4vibki8ja',
-  orderKey: 'order=',
+  // apiKey: 'auth_token',
+  // orderKey: 'order=',
 };
 
 /*

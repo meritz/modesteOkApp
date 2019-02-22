@@ -43,4 +43,8 @@ export class DashboardPage implements OnInit {
     this.authService.logout();
   }
 
+  changeToggle(plats){
+    console.log(plats.Id)
+}
+
 }

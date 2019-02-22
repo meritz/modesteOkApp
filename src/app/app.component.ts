@@ -35,11 +35,13 @@ export class AppComponent {
       this.splashScreen.hide();
 
       this.authenticationService.authenticationState.subscribe(state => {
+        // if (state !== null) {
         if (state) {
           this.router.navigate(['members', 'dashboard']);
         } else {
-          this.router.navigate(['accueil']);
+          this.router.navigate(['login']);
         }
+      // }
       });
 
     });

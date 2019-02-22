@@ -16,6 +16,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { AppGlobals } from './global';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +36,7 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
     SplashScreen,
     BluetoothSerial,
     DatePicker,
+    AppGlobals,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

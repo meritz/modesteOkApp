@@ -8,6 +8,7 @@
   </ion-toolbar>
 </ion-header>
  <!--  -->
+ 
 <ion-content padding>
     <ion-grid class="h-mots-titre">
       <ion-row>
@@ -27,38 +28,45 @@
           </div>
         </ion-col>
       </ion-row>
-    </ion-grid>
-  <!--  -->
+    </ion-grid> 
+  
     <ion-row class="login-logo">
         <ion-col><ion-img src="/assets/imgs/logo-app.png"></ion-img></ion-col>
     </ion-row>
       
   <!--  -->
-  <form [formGroup]="login_form">
+  <ion-spinner color="secondary"  *ngIf="isLoading"></ion-spinner>
+  <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
     
       <ion-item>
           <ion-col size="2">
               <ion-icon name="phone-portrait" style="color: #CC0033"></ion-icon>
             </ion-col>
             <ion-col>
-              <input type="text" formControlName="user_name" placeholder="Enter the Username">
+              <ion-input type="email" inputmode="email" placeholder="email" formControlName="email" required autofocus="true" clearInput></ion-input>
             </ion-col>
       </ion-item>
+      <!-- <ion-item *ngIf="loginForm.get('email').hasError('email')">
+        <p color="danger" ion-text>Email incorrect</p>
+      </ion-item> -->
 
       <ion-item>
           <ion-col size="2">
               <ion-icon name="key" style="color: #CC0033"></ion-icon>
             </ion-col>
             <ion-col>
-              <input type="password" formControlName="password" placeholder="Password">
+              <ion-input type="password" placeholder="password" formControlName="password"  required ></ion-input>
             </ion-col>
       </ion-item>
+      <!-- <ion-item *ngIf="loginForm.get('password').hasError('pattern')">
+        <p color="danger" ion-text>Password muy debil</p>
+      </ion-item> -->
        
-     <ion-button expand="block" (click)="onLoginClicled()" [ngClass]="login_form.valid? 'custom-button': 'custom-invalid-button'" >login</ion-button>
+     <ion-button type="submit" expand="block" [disabled]="loginForm.invalid" >login</ion-button>
     
   </form>
   <!--  -->
-  <ion-grid>
+  <!-- <ion-grid>
       <ion-row>
         <ion-col size-md="3">
           <div>
@@ -89,7 +97,7 @@
           </div>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
   <!-- <h2 text-center >Poursuivre ton rêve</h2> -->
   </ion-content>
 

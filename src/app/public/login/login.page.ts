@@ -10,26 +10,43 @@ import { ModalController, NavController, ToastController, AlertController } from
 })
 export class LoginPage implements OnInit {
 
-  public login_form: FormGroup;
+  public loginForm: FormGroup;
+  isLoading: boolean = false;
 
 
   constructor(private formBuilder: FormBuilder,
+              public toastController: ToastController,
               private authService: AuthenticationService) {
 
-                this.login_form = this.formBuilder.group({
-                  user_name: ['', Validators.compose([Validators.required])],
-                  password: [null, Validators.required],
+                this.loginForm = this.formBuilder.group({
+                  email: ['', [Validators.required, Validators.email]],
+                  password: ['', [Validators.required]],
                 });
-              this.login_form.reset();
               }
 
   ngOnInit() {
   }
 
-  onLoginClicled() {
-    this.authService.login(this.login_form.value);
-    this.login_form.reset();
-     // this.navCtrl.navigateRoot('/app/tabs/(home:home)');
-    }
+  login() {
+    this.isLoading = true;
+    this.authService.login(this.loginForm.value).subscribe(
+      (response) => {
+        console.log('response', response);
+        if (response.user_auth === 'success') {
+          this.isLoading = true;
+          this.authService.setToken(response);
+        } else {
+          this.isLoading = false;
+        }
 
+      });
+    }
+ 
+    async presentToast(msg) {
+      const toast = await this.toastController.create({
+        message: msg,
+        duration: 2000
+      });
+      toast.present();
+    }
 }

@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="undo"></ion-icon>
       </ion-button>
-    </ion-buttons>
-    <ion-title>Livreur</ion-title>
+    </ion-buttons> -->
+    <ion-title text-center>Livreur</ion-title>
   </ion-toolbar>
 </ion-header>
  
@@ -36,16 +36,13 @@
       </ion-item>
         <ion-item class="activated">
           <ion-icon name="pricetag" slot="start"></ion-icon>
-          <ion-label>Etat de Livraison: {{plats.livreur}}</ion-label>
-          <ion-toggle checked="false" ></ion-toggle>
+          <ion-label>{{plats.state_code}}</ion-label>
+          <ion-toggle  checked="" [(ngModel)]="plats.state_code"  (ionChange)="changeToggle(plats.state_code)" ></ion-toggle>
         </ion-item>
       </ion-card-content>
     </ion-card>
     
-        <!-- <h1 *ngFor="let dat of data?.data">
-          {{dat.nom_client}}
-        </h1> -->
-  
+
     
     
 </ion-content>
