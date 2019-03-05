@@ -12,10 +12,16 @@ const API_URL = environment.apiUrl;
 })
 export class CommandeService {
   currentArticle: any;
+  currentLivreure: any;
   // currentDetailArticle: any;
   constructor(private http: HttpClient, public authenticationService: AuthenticationService) { }
 
   getData(url) {
+    // return this.http.get(`${API_URL}/${url}?token=rzt69auwt6o5jrn9el5s`);
+    return this.http.get(`${API_URL}/${url}?token`);
+
+  }
+  getLivreur(url) {
     // return this.http.get(`${API_URL}/${url}?token=rzt69auwt6o5jrn9el5s`);
     return this.http.get(`${API_URL}/${url}?token`);
 

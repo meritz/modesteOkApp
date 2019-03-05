@@ -26,11 +26,16 @@ export class DetailPage implements OnInit {
        console.log(data);
        this.data = data;
      });
-     console.log(this.commandeService.currentArticle);
+    //  console.log(this.commandeService.currentArticle);
+    //  this.detailCommandeService.getDetailComdeData(`get-produits-commande`, this.plats = this.commandeService.currentArticle)
+    // .subscribe(data => {
+    //    console.log(data);
+    //    this.data = data;
+    //  });
   }
 
 
-  async opendetail(article: any) {
+  async opendetail(article: any,) {
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: {

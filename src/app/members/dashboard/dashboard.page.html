@@ -1,11 +1,12 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <!-- <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="undo"></ion-icon>
+        log out
       </ion-button>
-    </ion-buttons> -->
-    <ion-title text-center>Livreur</ion-title>
+    </ion-buttons>
+    <ion-title text-center>ACCUEIL</ion-title>
   </ion-toolbar>
 </ion-header>
  
@@ -14,7 +15,7 @@
       <ion-item>
         <ion-icon name="contact" slot="start"></ion-icon>
         <ion-title>{{plats.nom_client}}</ion-title>
-        <ion-button fill="outline" slot="end" (click)="opendetail(plats.id_order)"><ion-icon name="print"></ion-icon></ion-button>
+        <ion-button fill="outline" slot="end" (click)="opendetail(plats.id_order)"><ion-icon name="add-circle"></ion-icon></ion-button>
       </ion-item>
     
       <ion-card-content>
@@ -26,10 +27,10 @@
             <ion-icon name="time" slot="start"></ion-icon>
             <ion-label>{{plats.date_add}}</ion-label>
         </ion-item>
-        <ion-item>
+        <!-- <ion-item>
             <ion-icon name="bicycle" slot="start"></ion-icon>
             <ion-label>{{plats.date_livraison_prevue}} -- {{plats.heure_livraison_prevue}}</ion-label>
-        </ion-item>
+        </ion-item> -->
         <ion-item>
           <ion-icon name="cart" slot="start"></ion-icon>
           <ion-label>{{plats.state_name}}</ion-label>
@@ -37,12 +38,10 @@
         <ion-item class="activated">
           <ion-icon name="pricetag" slot="start"></ion-icon>
           <ion-label>{{plats.state_code}}</ion-label>
-          <ion-toggle  checked="" [(ngModel)]="plats.state_code"  (ionChange)="changeToggle(plats.state_code)" ></ion-toggle>
+          <ion-toggle></ion-toggle>
         </ion-item>
       </ion-card-content>
     </ion-card>
-    
-
     
     
 </ion-content>

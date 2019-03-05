@@ -27,7 +27,9 @@
                 <p>STAFF: {{article.nom_livreur}}</p>
                 <p>TEL: 90 22 90 22</p>
             </ion-text>
-                <p>date de livraison:   {{selectedDate | date}}</p>
+                <!-- <p>date de livraison:
+                 <ion-datetime displayFormat="MMM DD, YYYY HH:mm" name="myDate" [(ngModel)]="myDate"></ion-datetime>
+                </p>  -->
           </ion-label>
       </ion-item>
     
@@ -90,7 +92,7 @@
 
   <!--  -->
   <ion-list padding>
-    <ion-button color="danger" expand="block" (click)="startScanning(); setDate(article)">Connecter à l'imrimantep</ion-button>
+    <ion-button color="danger" expand="block" (click)="startScanning(); ">Connecter à l'imprimente</ion-button>
     <!-- <ion-list-header>
       LISTE DES APPARIELS CONNECTER
     </ion-list-header> -->

@@ -17,4 +17,8 @@ export class DetailCommandeService {
   getDetailData(url, id) {
     return this.http.get(`${API_URL}/${url}?token&order=${id}`);
   }
+
+  getDetailComdeData(url, id) {
+    return this.http.get(`${API_URL}/${url}?token&order=${id}`);
+  }
 }

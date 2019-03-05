@@ -19,11 +19,11 @@ export class NotificationHelperService {
     toast.present();
   }
 
-  async showAlert(title: string, subTitle: string, buttons: string[]) {
+  async showAlert(header: string, subHeader: string, message:string, buttons: string[]) {
     const alert = await this.alertCtrl.create({
       header: 'Alert',
       subHeader: 'Subtitle',
-      message: 'This is an alert message.',
+      message: 'ok.',
       buttons: ['Appareil connecter']
     });
     await alert.present();
@@ -32,6 +32,7 @@ export class NotificationHelperService {
   async showAlertWithDialog(param: any) {
     const alert = await this.alertCtrl.create({
       header: param.header,
+      subHeader: param.subHeader,
       message: param.message,
       buttons: param.buttons,
     });

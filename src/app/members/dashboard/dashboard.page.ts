@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class DashboardPage implements OnInit {
 
   data: any;
+  livreur: any;
 
 
 
@@ -31,6 +32,12 @@ export class DashboardPage implements OnInit {
       this.data = data;
     });
     console.log(this.commandeService.currentArticle);
+    this.commandeService.getData(`get-liste-livreur`)
+    .subscribe(data => {
+      console.log(data);
+      this.livreur = data;
+    });
+    console.log(this.commandeService.currentLivreure);
   }
 
 

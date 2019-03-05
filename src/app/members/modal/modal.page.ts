@@ -14,15 +14,20 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./modal.page.scss'],
 })
 export class ModalPage implements OnInit {
-  article ;
+  article  ;
+  // produits: produit[]  ;
+  // num = [7, 8, 9];
   unpairedDevices: any;
   pairedDevices: any;
   gettingDevices: Boolean;
   selectedDate: Date;
-  produits: 'article.produits';
+ 
   // data ;
 
+
   // inputData: Date;
+  public myDate: string = new Date().toLocaleDateString().slice(0, 10);
+
 
   constructor(private bluetoothSerial: BluetoothSerial,
               private alertCtrl: AlertController,
@@ -37,6 +42,7 @@ export class ModalPage implements OnInit {
               }
 
   ngOnInit() {
+    this.setDate;
     this.article = this.detailCommandeService.currentDetailArticle;
     console.log(this.detailCommandeService.currentDetailArticle);
 
@@ -78,13 +84,13 @@ export class ModalPage implements OnInit {
       message: 'veux tu connecter cette appareil pour inpression?',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'non',
           role: 'cancel',
           handler: (blah) => {
             console.log('Cancel clicked');
           }
         }, {
-          text: 'connection faite',
+          text: 'oui',
           handler: () => {
             this.bluetoothSerial.connect(address).subscribe(this.success, this.fail);
           }
@@ -131,11 +137,12 @@ export class ModalPage implements OnInit {
   }
 
   sendDataToSerial() {
+    console.log(this.article);
     this.bluetoothSerial.write(
-      this.write()
+      this.write(),
+    //  [186, 220, 222],
     ).then((success) => {
       alert(success);
-
     }, (failure) => {
 
     });
@@ -158,8 +165,12 @@ export class ModalPage implements OnInit {
   }
 
   titre(titreAlloresto): string {
-    return titreAlloresto;
+    return titreAlloresto.toUpperCase();
   }
+
+  // produit(produit): string {
+  //   return produit.nom_produit;
+  // }
 
   TXT_4SQUARE(formaAlloresto): string {
     return '\x1b\x21\x30';
@@ -223,19 +234,19 @@ export class ModalPage implements OnInit {
 
   write(): any {
     // tslint:disable-next-line:prefer-const
-    const toshibaPrintScript: any =
+    const toshibaPrintScript =
       this.cleanBuffer() +
       this.cleanBuffer() +
       this.TXT_4SQUARE('formaAlloresto') +
       this.TXT_ALIGN_CT('aligCenterlAlloresto') +
-      this.titre('@LLORESTO365') +
+      this.titre('@llORESTO365') +
       this.cleanBuffer() +
       this.TXT_NORMAL('formanormalAlloresto') +
       this.TXT_ALIGN_CT('aligCenterlAlloresto') +
       this.numero('TEL: 00288 93644252') +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
-      this.lieu('lieu:Lome/TOGO avedji Sun City') +
+      this.lieu('SIEGE:Lome/TOGO avedji Sun City') +
       this.cleanBuffer() +
       this.text('******************************') +
       this.cleanBuffer() +
@@ -264,6 +275,18 @@ export class ModalPage implements OnInit {
       this.cleanBuffer() +
       this.text('================================') +
       this.cleanBuffer() +
+      // this.produits.nom_produit +
+    //   this.produit.forEach(function (value) {
+    //     console.log(value);
+    // }) +
+
+  //   this.article.products.forEach( (produit) => {
+  //     produit.nom_produit = produit.nom_produit.substring(0,10);
+  //     console.log(produit);
+  // }) +
+   
+      // this.article.produits[0].produit.nom_produit +
+      this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('REFERENCE:  ') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
@@ -278,9 +301,9 @@ export class ModalPage implements OnInit {
       this.text('================================') +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
-      this.text('LIVRAISON:') +
+      this.text('DATE DE LIVRAISON:') +
       this.TXT_ALIGN_RT('aligRightAlloresto') +
-      this.selectedDate +
+      this.myDate +
       this.cleanBuffer() +
       this.text('******************************') +
       this.cleanBuffer() +
@@ -289,8 +312,8 @@ export class ModalPage implements OnInit {
       this.TXT_ALIGN_CT('aligCenterlAlloresto') +
       this.text('MERCI DE VOTRE FIDELITE,') +
       this.cleanBuffer() +
-      this.text('A BIENTOT') +
-      this.cleanBuffer() +
+      // this.text('A BIENTOT') +
+      // this.cleanBuffer() +
       this.TXT_ALIGN_CT('aligCenterlAlloresto') +
       this.text('Les plats vendus ne sont') +
       this.cleanBuffer() +
@@ -302,5 +325,6 @@ export class ModalPage implements OnInit {
       this.printConditions();
     return toshibaPrintScript;
   }
+
 
 }
