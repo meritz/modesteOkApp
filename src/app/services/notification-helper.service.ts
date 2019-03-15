@@ -19,7 +19,7 @@ export class NotificationHelperService {
     toast.present();
   }
 
-  async showAlert(header: string, subHeader: string, message:string, buttons: string[]) {
+  async showAlert(header: string, subHeader: string, message: string, buttons: string[]) {
     const alert = await this.alertCtrl.create({
       header: 'Alert',
       subHeader: 'Subtitle',

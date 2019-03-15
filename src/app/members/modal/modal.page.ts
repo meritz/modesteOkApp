@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./modal.page.scss'],
 })
 export class ModalPage implements OnInit {
-  article  ;
+  article   ;
   // produits: produit[]  ;
   // num = [7, 8, 9];
   unpairedDevices: any;
@@ -139,7 +139,8 @@ export class ModalPage implements OnInit {
   sendDataToSerial() {
     console.log(this.article);
     this.bluetoothSerial.write(
-      this.write(),
+      this.write,
+      // this.article
     //  [186, 220, 222],
     ).then((success) => {
       alert(success);
@@ -275,17 +276,9 @@ export class ModalPage implements OnInit {
       this.cleanBuffer() +
       this.text('================================') +
       this.cleanBuffer() +
-      // this.produits.nom_produit +
-    //   this.produit.forEach(function (value) {
-    //     console.log(value);
-    // }) +
-
-  //   this.article.products.forEach( (produit) => {
-  //     produit.nom_produit = produit.nom_produit.substring(0,10);
-  //     console.log(produit);
-  // }) +
-   
-      // this.article.produits[0].produit.nom_produit +
+    //
+      // this.article.produits[1].produit.nom_produit +
+    //
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('REFERENCE:  ') +
