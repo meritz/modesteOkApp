@@ -139,7 +139,7 @@ export class ModalPage implements OnInit {
   sendDataToSerial() {
     console.log(this.article);
     this.bluetoothSerial.write(
-      this.write,
+      this.write()
       // this.article
     //  [186, 220, 222],
     ).then((success) => {
