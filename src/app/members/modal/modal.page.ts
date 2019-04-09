@@ -7,6 +7,7 @@ import { DatePicker, DatePickerOptions } from '@ionic-native/date-picker/ngx';
 
 import { DetailCommandeService } from '../../services/detail-commande.service';
 import { map } from 'rxjs/operators';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-modal',
@@ -14,18 +15,12 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./modal.page.scss'],
 })
 export class ModalPage implements OnInit {
-  article   ;
-  // produits: produit[]  ;
-  // num = [7, 8, 9];
+  article ;
   unpairedDevices: any;
   pairedDevices: any;
   gettingDevices: Boolean;
   selectedDate: Date;
- 
-  // data ;
 
-
-  // inputData: Date;
   public myDate: string = new Date().toLocaleDateString().slice(0, 10);
 
 
@@ -42,6 +37,7 @@ export class ModalPage implements OnInit {
               }
 
   ngOnInit() {
+    // tslint:disable-next-line:no-unused-expression
     this.setDate;
     this.article = this.detailCommandeService.currentDetailArticle;
     console.log(this.detailCommandeService.currentDetailArticle);
@@ -149,15 +145,8 @@ export class ModalPage implements OnInit {
     });
   }
 
-  // sendDataToSerial() {
-  //   this.bluetoothSerial.write(
-  //     'modeste'
-  //   ).then((success) => {
-  //     alert(success);
-  //   }, (failure) => {
-
-  //   });
-  // }
+  
+  
 
   declareLabelSize(pitchLengthOfLabel, effectivePrintWidth, effectivePrintLength): string {
     // return '{D' + pitchLengthOfLabel + ',' + effectivePrintWidth + ',' + effectivePrintLength + '|}';
@@ -169,9 +158,6 @@ export class ModalPage implements OnInit {
     return titreAlloresto.toUpperCase();
   }
 
-  // produit(produit): string {
-  //   return produit.nom_produit;
-  // }
 
   TXT_4SQUARE(formaAlloresto): string {
     return '\x1b\x21\x30';
@@ -230,11 +216,10 @@ export class ModalPage implements OnInit {
   }
 
   printConditions(): string {
-    return '';
+    return '{XS;I,0001,0002C1011|}';
   }
 
   write(): any {
-    // tslint:disable-next-line:prefer-const
     const toshibaPrintScript =
       this.cleanBuffer() +
       this.cleanBuffer() +
@@ -277,8 +262,14 @@ export class ModalPage implements OnInit {
       this.text('================================') +
       this.cleanBuffer() +
     //
-      // this.article.produits[1].produit.nom_produit +
+      // this.article.produits[0].nom_produit +
+      // this.article.produits.forEach(function(element) {
+      //   console.log(element);
+      // }).nom_produit +
     //
+
+      this.article.produits[0].nom_produit +
+      this.article.produits[1].nom_produit +
       this.cleanBuffer() +
       this.TXT_ALIGN_LT('aligLeftlAlloresto') +
       this.text('REFERENCE:  ') +
@@ -315,6 +306,7 @@ export class ModalPage implements OnInit {
       this.cleanBuffer() +
       this.text('') +
       this.cleanBuffer() +
+      this.generateBarcode('00', '0200', '0460', '0', '12345678') +
       this.printConditions();
     return toshibaPrintScript;
   }

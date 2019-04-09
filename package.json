@@ -79,7 +79,8 @@
       "cordova-plugin-printer": {
         "ANDROID_SUPPORT_V4_VERSION": "28.+"
       },
-      "cordova-plugin-datepicker": {}
+      "cordova-plugin-datepicker": {},
+      "cordova-plugin-advanced-http": {}
     },
     "platforms": [
       "android"
